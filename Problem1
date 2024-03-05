@@ -1,0 +1,14 @@
+class Solution1 {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        vector<int> counter; 
+        for (size_t i = 0; i < nums.size(); ++i){
+            auto checker = find(counter.begin(), counter.end(), nums[i]);
+            if (checker != counter.end()){
+                return true;
+            }
+            counter.push_back(nums[i]);
+        }
+        return false;
+    }
+};
